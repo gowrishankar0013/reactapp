@@ -9,7 +9,9 @@ class WelcomeComponet extends Component{
         this.state = {
             memberid:'',
             providerid:'',
-            welcomeMessage:''
+            welcomeMessage:'',
+            memberusername:'',
+            memberpassword:''
         }
         this.handlechange = this.handlechange.bind(this)
         this.submitClicked = this.submitClicked.bind(this)
@@ -51,8 +53,10 @@ class WelcomeComponet extends Component{
     render(){
         return(
             <>
-            <div>Welcome {this.props.match.params.name} for QPP Submission Portal</div>
-            <div className="container">
+            {/*<div>Welcome {this.props.match.params.name} for QPP Submission Portal</div>*/}
+            <div className="form-inline">
+                Member Username: <input type="text" name="memberusername" value={this.state.memberusername} onChange={this.handlechange}/>
+                Member Password: <input type="password" name="memberpassword" value={this.state.memberpassword} onChange={this.handlechange}/>
                 Member Id: <input type="text" name="memberid" value={this.state.memberid} onChange={this.handlechange}/>
                 Provider Id: <input type="text" name="providerid" value={this.state.providerid} onChange={this.handlechange}/>
                 <button onClick={this.submitClicked}>Submit</button>
